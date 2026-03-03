@@ -360,7 +360,13 @@
             background: rgba(255,255,255,0.8);
         }
 
-        .member-avatar { font-size: 2.8rem; margin-bottom: 10px; display: block; animation: float 3s ease-in-out infinite; }
+        .member-avatar {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+        }
         .member-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #6a1b4d; margin-bottom: 6px; }
         .member-wish { font-size: 0.78rem; color: #ad1457; font-weight: 500; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
         .member-card:hover .member-wish { opacity: 1; transform: translateY(0); }
@@ -1095,58 +1101,59 @@
 
     // 18 thành viên nữ
     const members = [
-        "Trần Ngọc Khả Ái", "Trần Thúy An", "Nguyễn Nhật Ánh Dương",
-        "Bùi Huỳnh Khánh Linh", "Lê Hoàng Thiên Nhi", "Nguyễn Ngọc Hà Như",
-        "Nguyễn Thị Hồng Thắm", "Võ Yến Thanh", "Nguyễn Minh Thy",
-        "Nguyễn Thị Bảo Trân", "Nguyễn Ngọc Bảo Trân", "Nguyễn Thị Thảo Trinh",
-        "Nguyễn Phạm Nhã Trúc", "Phan Thanh Trúc", "Trần Tường Vi",
-        "Nguyễn Phương Vy", "Lê Phan Ngọc Yến", "Miss Điệp"
+        "Miss Điệp", "Trần Ngọc Khả Ái", "Trần Thúy An",
+        "Nguyễn Nhật Ánh Dương", "Bùi Huỳnh Khánh Linh", "Lê Hoàng Thiên Nhi",
+        "Nguyễn Ngọc Hà Như", "Nguyễn Thị Hồng Thắm", "Võ Yến Thanh",
+        "Nguyễn Minh Thy", "Nguyễn Thị Bảo Trân", "Nguyễn Ngọc Bảo Trân",
+        "Nguyễn Thị Thảo Trinh", "Nguyễn Phạm Nhã Trúc", "Phan Thanh Trúc",
+        "Trần Tường Vi", "Nguyễn Phương Vy", "Lê Phan Ngọc Yến"
     ];
 
-    const avatarEmojis = ["🌹","🪻","🌻","🤍","🌸","🪷","🌹","🤍","🤍","🌺","🌷","🌼","🌺","🌼","🌸","💜","💜","🦋"];
+    // Icon hoa/cây cỏ riêng cho từng bạn/cô, mỗi người 1 icon
+    const avatarEmojis = ["🦋","🌹","🪻","🌻","🏵️","🌸","🪷","🌺","🌼","🌷","💮","⚜️","☘️","🌾","🍁","💐","🪴","🍀"];
 
-    // Hoa tượng trưng cho từng thành viên
+    // Phân tích tên + lời chúc ngắn hiển thị dưới tên
     const memberFlowerNotes = [
-        "🌹 Hoa hồng phấn • Ngọt ngào, đáng yêu, dịu dàng",
-        "🪻 Hoa oải hương • Dịu nhẹ, bình yên, thanh thúy",
-        "🌻 Hoa hướng dương • Rực rỡ, tỏa sáng",
-        "🤍 Hoa linh lan • Tinh khiết, mang lại may mắn",
-        "🌸 Hoa anh đào • Nhẹ nhàng, tinh tế, trong sáng",
-        "🪷 Hoa sen • Thanh cao, trong sáng, nữ tính",
-        "🌹 Hoa hồng đỏ thắm • Nồng nàn, nổi bật",
-        "🤍 Hoa nhài trắng • Thanh khiết, hương nhẹ",
-        "🤍 Hoa cúc trắng • Thanh cao, nho nhã",
-        "🌺 Hoa mẫu đơn • Quý phái, sang trọng",
-        "🌷 Hoa tulip hồng • Thanh lịch, quý giá",
-        "🌼 Hoa cúc họa mi • Trong sáng, giản dị",
-        "🌺 Hoa lan hồ điệp • Tao nhã, tinh tế",
-        "🌼 Hoa thủy tiên • Thanh cao, ngay thẳng",
-        "🌸 Hoa tường vi • Dịu dàng, duyên dáng",
-        "💜 Hoa violet • Nhỏ nhắn, thơm dịu",
-        "💜 Hoa thạch thảo • Nhẹ nhàng, lung linh",
-        "🦋 Hoa lan hồ điệp • Tự do như cánh bướm"
+        "Tên Điệp gợi lên cánh bướm thanh thoát, kính chúc cô luôn mạnh khỏe và tràn đầy nhiệt huyết.",
+        "Khả Ái nghĩa là dễ mến, chúc bạn luôn đáng yêu và lan tỏa niềm vui.",
+        "Thúy An mang sắc xanh bình yên, chúc bạn luôn dịu dàng và an nhiên.",
+        "Ánh Dương như tia nắng sớm, chúc bạn luôn rạng rỡ và truyền cảm hứng.",
+        "Khánh Linh gợi điềm lành tinh anh, chúc bạn luôn may mắn và tự tin.",
+        "Thiên Nhi là món quà trời ban, chúc bạn mãi trong trẻo và hạnh phúc.",
+        "Hà Như gợi dòng sông êm đềm, chúc bạn luôn thanh tao và bình an.",
+        "Hồng Thắm đậm sắc nồng nàn, chúc bạn luôn nổi bật và nhiều niềm vui.",
+        "Yến Thanh mang nét trong trẻo tự do, chúc bạn luôn nhẹ nhàng và vững vàng.",
+        "Minh Thy vừa sáng vừa nho nhã, chúc bạn luôn tinh tế và gặp nhiều điều tốt đẹp.",
+        "Bảo Trân nghĩa là báu vật trân quý, chúc bạn luôn được yêu thương và trân trọng.",
+        "Ngọc Bảo Trân gợi viên ngọc quý, chúc bạn luôn tỏa sáng theo cách riêng.",
+        "Thảo Trinh mang vẻ mộc mạc tinh khôi, chúc bạn luôn hiền hòa và hạnh phúc.",
+        "Nhã Trúc thanh lịch mà cứng cỏi, chúc bạn luôn bản lĩnh và dịu dàng.",
+        "Thanh Trúc gợi sự ngay thẳng trong trẻo, chúc bạn luôn kiên định và thành công.",
+        "Tên Tường Vi đã là một loài hoa đẹp, chúc bạn luôn duyên dáng và rực rỡ.",
+        "Phương Vy nhỏ nhắn mà thơm dịu, chúc bạn luôn tự tin và đáng yêu.",
+        "Ngọc Yến vừa thanh vừa sáng, chúc bạn luôn an yên và tỏa sáng."
     ];
 
     // Lời chúc riêng cho từng thành viên (modal)
     const personalWishes = [
-        "Khả Ái ơi, hoa hồng phấn rất hợp với sự đáng yêu của bạn. Chúc bạn luôn ngọt ngào, dịu dàng và tràn đầy niềm vui! 🌹💕",
-        "Thúy An ơi, bạn mang cảm giác bình yên như hoa oải hương. Chúc bạn luôn nhẹ nhàng, an nhiên và hạnh phúc! 🪻✨",
-        "Ánh Dương ơi, đúng như hoa hướng dương, bạn luôn rực rỡ và lan tỏa năng lượng tích cực cho cả lớp! 🌻☀️",
-        "Khánh Linh ơi, hoa linh lan tượng trưng cho điềm lành và may mắn như chính tên của bạn. Chúc bạn luôn tỏa sáng! 🤍🍀",
-        "Thiên Nhi ơi, nét trong trẻo của bạn rất hợp với hoa anh đào. Chúc bạn mãi tinh tế, dịu dàng và vui tươi! 🌸💫",
-        "Hà Như ơi, hoa sen thanh cao như phong thái của bạn. Chúc bạn luôn bình an, thuần khiết và đầy yêu thương! 🪷💖",
-        "Hồng Thắm ơi, cái tên đã gợi lên sắc đỏ nồng nàn của hoa hồng thắm. Chúc bạn mãi rực rỡ và hạnh phúc! 🌹🥰",
-        "Yến Thanh ơi, hoa nhài trắng hợp với sự trong trẻo của bạn. Chúc bạn luôn thanh khiết, tự do và thật duyên dáng! 🤍🕊️",
-        "Minh Thy ơi, vẻ nho nhã của bạn giống như hoa cúc trắng. Chúc bạn luôn tinh tế, thông minh và gặp nhiều may mắn! 🤍🌟",
-        "Bảo Trân ơi, hoa mẫu đơn đại diện cho sự quý phái và trân quý như chính cái tên của bạn. Chúc bạn thật rạng rỡ! 🌺👑",
-        "Ngọc Bảo Trân ơi, hoa tulip hồng rất hợp với sự thanh lịch và quý giá của bạn. Chúc bạn luôn nổi bật theo cách riêng! 🌷💎",
-        "Thảo Trinh ơi, hoa cúc họa mi mang nét trong sáng và giản dị như bạn. Chúc bạn luôn nhẹ nhàng và bình an! 🌼💕",
-        "Nhã Trúc ơi, hoa lan hồ điệp tôn lên vẻ tao nhã tinh tế của bạn. Chúc bạn luôn tự tin và tỏa sáng! 🌺✨",
-        "Thanh Trúc ơi, hoa thủy tiên tượng trưng cho sự thanh cao và chính trực. Chúc bạn luôn mạnh mẽ, trong sáng và thành công! 🌼💙",
-        "Tường Vi ơi, tên bạn đã là một loài hoa đẹp. Chúc bạn mãi dịu dàng, duyên dáng và hạnh phúc tròn đầy! 🌸💖",
-        "Phương Vy ơi, hoa violet nhỏ nhắn mà cuốn hút như bạn. Chúc bạn luôn đáng yêu và thơm ngát năng lượng tích cực! 💜🌈",
-        "Ngọc Yến ơi, hoa thạch thảo nhẹ nhàng và lung linh đúng với khí chất của bạn. Chúc bạn luôn rạng rỡ và an yên! 💜🕊️",
-        "Miss Điệp ơi, hình ảnh cánh bướm của bạn rất hợp với hoa lan hồ điệp. Chúc bạn luôn tự do, tinh tế và bay cao thật đẹp! 🦋🌺"
+        "Cô Điệp kính mến, tên “Điệp” gợi cánh bướm thanh thoát và tinh tế. Chúng em kính chúc cô luôn mạnh khỏe, an vui, nhiều năng lượng tích cực và luôn đồng hành thật hạnh phúc cùng 12A1. 💐",
+        "Khả Ái ơi, cái tên đã nói lên sự dễ thương, gần gũi và thiện cảm. Chúc bạn luôn đáng yêu, tự tin và gặp thật nhiều niềm vui trong cuộc sống! 🌹",
+        "Thúy An ơi, tên bạn mang vẻ xanh trong và bình yên rất đẹp. Chúc bạn luôn giữ được sự nhẹ nhàng, an nhiên và hạnh phúc mỗi ngày! 🪻",
+        "Ánh Dương ơi, bạn như tia nắng ấm khiến mọi thứ bừng sáng hơn. Chúc bạn luôn rực rỡ, tích cực và thành công trên mọi chặng đường! 🌻",
+        "Khánh Linh ơi, tên bạn gợi điều lành và sự lanh lợi tinh anh. Chúc bạn luôn may mắn, bản lĩnh và tỏa sáng đúng giá trị của mình! 💮",
+        "Thiên Nhi ơi, tên bạn nghe như một món quà dịu dàng của bầu trời. Chúc bạn luôn trong trẻo, tinh tế và đạt được những điều mình mong ước! 🌸",
+        "Hà Như ơi, tên bạn gợi một dòng sông êm và sâu lắng. Chúc bạn luôn bình an, nữ tính và giữ được năng lượng tích cực trong mọi ngày! 🪷",
+        "Hồng Thắm ơi, cái tên mang sắc màu nồng ấm và nổi bật. Chúc bạn luôn rạng rỡ, tự tin và nhận thật nhiều yêu thương chân thành! 🌺",
+        "Yến Thanh ơi, tên bạn mang cảm giác tự do, thanh khiết và trong trẻo. Chúc bạn luôn nhẹ nhàng nhưng vững vàng, bay cao theo ước mơ của mình! 🌼",
+        "Minh Thy ơi, tên bạn vừa sáng sủa vừa nho nhã, rất duyên. Chúc bạn luôn thông tuệ, tinh tế và gặp thật nhiều điều may mắn đẹp đẽ! 🌷",
+        "Bảo Trân ơi, bạn đúng như một báu vật đáng trân quý. Chúc bạn luôn được yêu thương, trân trọng và tỏa sáng thật kiêu hãnh! 💐",
+        "Ngọc Bảo Trân ơi, tên bạn gợi viên ngọc quý hiếm và thanh lịch. Chúc bạn luôn nổi bật theo cách riêng và giữ trọn sự rạng rỡ của mình! 🌷",
+        "Thảo Trinh ơi, tên bạn mộc mạc mà tinh khôi, rất dịu dàng. Chúc bạn luôn bình yên, giữ được sự trong trẻo và hạnh phúc dài lâu! 🌼",
+        "Nhã Trúc ơi, cái tên mang khí chất tao nhã nhưng rất kiên cường. Chúc bạn luôn bản lĩnh, tự tin và vững bước trong mọi mục tiêu! 🪻",
+        "Thanh Trúc ơi, tên bạn gợi sự ngay thẳng, trong sáng và mạnh mẽ. Chúc bạn luôn kiên định, chân thành và gặt hái thật nhiều thành công! 🪷",
+        "Tường Vi ơi, tên bạn là một loài hoa đẹp và rất duyên. Chúc bạn luôn dịu dàng, tươi tắn và có thật nhiều khoảnh khắc hạnh phúc! 🌸",
+        "Phương Vy ơi, tên bạn mang nét nhỏ nhắn mà thơm ngát, đáng mến. Chúc bạn luôn tự tin, tích cực và đáng yêu theo đúng chất riêng! 🌺",
+        "Ngọc Yến ơi, tên bạn gợi vẻ đẹp thanh sáng và tinh tế. Chúc bạn luôn an yên, trọn niềm vui và luôn tỏa sáng theo cách dịu dàng nhất! 🌻"
     ];
 
     // Quà vòng quay (8 ô)
