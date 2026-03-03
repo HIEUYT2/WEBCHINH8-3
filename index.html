@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày Quốc Tế Phụ Nữ 8/3 💐 | 12A1</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* ============================================
+           RESET & CƠ BẢN
+           ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: #4a0e2e;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: #fce4ec;
+            /* Animated gradient background */
+            animation: bgShift 12s ease infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 30%, #f48fb1 60%, #e1bee7 100%); }
+            33% { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 30%, #ce93d8 60%, #f8bbd0 100%); }
+            66% { background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 30%, #e1bee7 60%, #f3e5f5 100%); }
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        /* ============================================
+           RIBBON BADGE GÓC PHẢI
+           ============================================ */
+        .corner-ribbon {
+            position: fixed;
+            top: 28px;
+            right: -50px;
+            z-index: 10000;
+            background: linear-gradient(135deg, #ad1457, #6a1b9a);
+            color: white;
+            padding: 8px 60px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 15px rgba(106,27,154,0.4);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* ============================================
+           NAVIGATION BAR
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 2px 20px rgba(136,14,79,0.1);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #880e4f;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, #ad1457, #880e4f);
+            color: white;
+        }
+
+        /* ============================================
+           HOA RƠI ĐA DẠNG - NỀN LIÊN TỤC
+           ============================================ */
+        .petal {
+            position: fixed;
+            top: -60px;
+            z-index: 9997;
+            pointer-events: none;
+            animation: petalFall linear forwards;
+            opacity: 0.85;
+            will-change: transform, opacity;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes petalFall {
+            0% { transform: translate3d(0, -10vh, 0) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 0.9; }
+            25% { transform: translate3d(35px, 22vh, 0) rotate(90deg) scale(1.1); }
+            50% { transform: translate3d(-25px, 50vh, 0) rotate(180deg) scale(0.9); opacity: 0.7; }
+            75% { transform: translate3d(45px, 78vh, 0) rotate(270deg) scale(1.05); }
+            100% { transform: translate3d(-15px, 118vh, 0) rotate(360deg) scale(1); opacity: 0; }
+        }
+
+        /* Floating hearts bay lên */
+        .floating-heart {
+            position: fixed;
+            bottom: -40px;
+            z-index: 9996;
+            pointer-events: none;
+            animation: floatUp linear forwards;
+            opacity: 0.6;
+            will-change: transform, opacity;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translate3d(0, 8vh, 0) scale(0.5); opacity: 0; }
+            10% { opacity: 0.6; }
+            50% { transform: translate3d(30px, -40vh, 0) scale(1); }
+            100% { transform: translate3d(-20px, -120vh, 0) scale(0.7); opacity: 0; }
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%, transparent 70%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #880e4f;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #880e4f, #c62828, #ad1457, #6a1b9a);
+            background-size: 300% 300%;
+            animation: gradientText 4s ease infinite, fadeInUp 1s ease 0.2s both;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        @keyframes gradientText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            color: #6a1b4d;
+            font-weight: 500;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease 0.4s both;
+            font-family: 'Dancing Script', cursive;
+            min-height: 2em;
+        }
+
+        .hero .subtitle-static {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: #ad1457;
+            font-weight: 600;
+            margin-bottom: 36px;
+            animation: fadeInUp 1s ease 0.5s both;
+            font-family: 'Quicksand', sans-serif;
+            opacity: 0.8;
+        }
+
+        /* Countdown */
+        .countdown-container { animation: fadeInUp 1s ease 0.6s both; margin-bottom: 36px; }
+        .countdown-label { font-size: 1rem; color: #880e4f; margin-bottom: 12px; font-weight: 600; }
+
+        .countdown {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 16px;
+            padding: 16px 20px;
+            min-width: 80px;
+            box-shadow: 0 8px 32px rgba(136,14,79,0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover { transform: scale(1.08); }
+        .countdown-item .number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: #880e4f; display: block; }
+        .countdown-item .label { font-size: 0.7rem; color: #ad1457; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .celebration-msg {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: #880e4f;
+            font-weight: 700;
+            padding: 24px 40px;
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.6);
+            animation: pulse 2s ease infinite;
+        }
+
+        .scroll-btn {
+            animation: fadeInUp 1s ease 0.8s both;
+            margin-top: 10px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ad1457;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            color: #ad1457;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover { background: #ad1457; color: white; transform: translateY(5px); }
+
+        /* ============================================
+           SECTION CHUNG
+           ============================================ */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: #880e4f;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #ad1457;
+            font-size: 1rem;
+            margin-bottom: 48px;
+            font-weight: 500;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ad1457, #6a1b9a);
+            margin: 0 auto 48px;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           DANH SÁCH THÀNH VIÊN
+           ============================================ */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 28px 14px 22px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            background-clip: padding-box;
+        }
+
+        /* Gradient border effect */
+        .member-card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #f06292, #ce93d8, #f06292);
+            background-size: 200% 200%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: borderShift 3s ease infinite;
+        }
+
+        @keyframes borderShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .member-card:hover::after { opacity: 1; }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .member-card:hover::before { left: 100%; }
+
+        .member-card:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 20px 40px rgba(136,14,79,0.2);
+            background: rgba(255,255,255,0.8);
+        }
+
+        .member-avatar { font-size: 2.8rem; margin-bottom: 10px; display: block; animation: float 3s ease-in-out infinite; }
+        .member-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #6a1b4d; margin-bottom: 6px; }
+        .member-wish { font-size: 0.78rem; color: #ad1457; font-weight: 500; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+        .member-card:hover .member-wish { opacity: 1; transform: translateY(0); }
+        .member-click-hint { font-size: 0.65rem; color: #ce93d8; margin-top: 4px; opacity: 0; transition: all 0.3s ease; }
+        .member-card:hover .member-click-hint { opacity: 1; }
+
+        /* Modal lời chúc riêng */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(74,14,46,0.5);
+            backdrop-filter: blur(8px);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-box {
+            background: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 30px 60px rgba(136,14,79,0.3);
+        }
+
+        @keyframes modalIn {
+            from { transform: scale(0.7) translateY(40px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px; right: 16px;
+            background: none; border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ad1457;
+            transition: transform 0.2s;
+        }
+
+        .modal-close:hover { transform: rotate(90deg); }
+        .modal-emoji { font-size: 4rem; margin-bottom: 16px; display: block; }
+        .modal-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #880e4f; margin-bottom: 12px; }
+        .modal-message { font-size: 1rem; color: #6a1b4d; line-height: 1.7; font-family: 'Dancing Script', cursive; font-weight: 700; }
+
+        /* ============================================
+           TRÒ CHƠI - TABS
+           ============================================ */
+        .games-section {
+            padding: 80px 20px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .game-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-tab {
+            padding: 10px 18px;
+            border-radius: 50px;
+            border: 2px solid #ad1457;
+            background: transparent;
+            color: #ad1457;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-tab.active, .game-tab:hover {
+            background: linear-gradient(135deg, #ad1457, #880e4f);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(173,20,87,0.35);
+        }
+
+        .game-panel { display: none; animation: fadeIn 0.5s ease; }
+        .game-panel.active { display: block; }
+
+        .game-container {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 24px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .game-title { font-size: 1.5rem; color: #880e4f; margin-bottom: 8px; }
+        .game-desc { color: #ad1457; margin-bottom: 24px; font-weight: 500; font-size: 0.9rem; }
+
+        /* Nút chung cho game */
+        .btn-primary {
+            padding: 14px 44px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #e91e63, #ad1457);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(233,30,99,0.35);
+        }
+
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(233,30,99,0.45); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .btn-secondary {
+            margin-top: 16px;
+            padding: 10px 24px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ce93d8, #ab47bc);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(171,71,188,0.4); }
+
+        .game-result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #880e4f;
+            min-height: 36px;
+        }
+
+        /* --- GAME 1: VÒNG QUAY MAY MẮN --- */
+        .wheel-wrapper {
+            position: relative;
+            width: 350px; height: 350px;
+            margin: 0 auto 28px;
+        }
+
+        .wheel-canvas {
+            width: 350px; height: 350px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 8px #ad1457, 0 0 0 12px rgba(173,20,87,0.25), 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -20px; left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.7rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            z-index: 2;
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, #fce4ec, #fff);
+            border-radius: 50%;
+            border: 3px solid #ad1457;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        /* --- GAME 2: HỘP QUÀ BÍ ẨN --- */
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 380px;
+            margin: 0 auto 16px;
+        }
+
+        .gift-box {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f06292, #e91e63);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233,30,99,0.25);
+            animation: giftShake 2.5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gift-box:nth-child(even) { animation-delay: 0.7s; background: linear-gradient(135deg, #ce93d8, #ab47bc); }
+        .gift-box:nth-child(3n) { animation-delay: 1.2s; background: linear-gradient(135deg, #ef9a9a, #e57373); }
+        .gift-box:hover { transform: scale(1.12); box-shadow: 0 8px 25px rgba(233,30,99,0.45); }
+
+        .gift-box.opened {
+            background: linear-gradient(135deg, #fff9c4, #fff176) !important;
+            animation: giftOpen 0.6s ease forwards;
+            cursor: default;
+            font-size: 0.9rem;
+            padding: 6px;
+            color: #880e4f;
+            font-weight: 700;
+        }
+
+        .gift-box.disabled { opacity: 0.4; cursor: default; animation: none; }
+        .gift-box.disabled:hover { transform: none; box-shadow: none; }
+
+        @keyframes giftShake {
+            0%, 100% { transform: rotate(0deg); }
+            8% { transform: rotate(-4deg); }
+            16% { transform: rotate(4deg); }
+            24% { transform: rotate(-2deg); }
+            32% { transform: rotate(2deg); }
+            40%, 100% { transform: rotate(0deg); }
+        }
+
+        @keyframes giftOpen {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.2) rotate(5deg); }
+            60% { transform: scale(0.9) rotate(-3deg); }
+            100% { transform: scale(1) rotate(0); }
+        }
+
+        /* --- GAME 3: AI LÀ NGƯỜI ĐẶC BIỆT --- */
+        .slot-display {
+            font-size: clamp(1.3rem, 3.5vw, 2rem);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #880e4f;
+            min-height: 80px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.5);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            padding: 20px;
+            border: 2px dashed #f06292;
+        }
+
+        .slot-display.spinning { animation: slotPulse 0.1s ease infinite; }
+        .slot-display.winner {
+            border: 3px solid #e91e63;
+            background: linear-gradient(135deg, #fff9c4, #fff176);
+            animation: winnerGlow 1s ease infinite;
+        }
+
+        @keyframes slotPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        @keyframes winnerGlow { 0%, 100% { box-shadow: 0 0 20px rgba(233,30,99,0.3); } 50% { box-shadow: 0 0 40px rgba(233,30,99,0.6); } }
+
+        /* --- GAME 4: RANDOM LỜI CHÚC --- */
+        .wish-slot-display {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: #880e4f;
+            min-height: 120px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            padding: 24px;
+            border: 2px dashed #ce93d8;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .wish-slot-display.active {
+            border: 3px solid #ab47bc;
+            background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+            box-shadow: 0 0 30px rgba(171,71,188,0.3);
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: #ad1457;
+            margin-left: 2px;
+            animation: blink 0.7s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* --- GAME 5: GHÉP ĐÔI HOA --- */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 360px;
+            margin: 0 auto 20px;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            border-radius: 14px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .memory-card.flipped { transform: rotateY(180deg); }
+        .memory-card.matched { animation: matchPop 0.5s ease; }
+
+        @keyframes matchPop {
+            0% { transform: rotateY(180deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.15); }
+            100% { transform: rotateY(180deg) scale(1); }
+        }
+
+        .memory-card .card-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            backface-visibility: hidden;
+            font-size: 2rem;
+        }
+
+        .memory-card .card-front {
+            background: linear-gradient(135deg, #f06292, #ec407a);
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(233,30,99,0.3);
+        }
+
+        .memory-card .card-back {
+            background: rgba(255,255,255,0.8);
+            transform: rotateY(180deg);
+            font-size: 2.2rem;
+            border: 2px solid #f8bbd0;
+        }
+
+        .memory-card.matched .card-back {
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+            border-color: #66bb6a;
+        }
+
+        .memory-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #880e4f;
+        }
+
+        .memory-stats span {
+            background: rgba(255,255,255,0.5);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* --- GAME 6: BÓC THĂM MAY MẮN --- */
+        .envelope-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 420px;
+            margin: 0 auto 20px;
+        }
+
+        .envelope {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .envelope:hover { transform: translateY(-8px) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+
+        .envelope.opened {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #4a0e2e;
+            cursor: default;
+            animation: envelopeOpen 0.7s ease;
+            padding: 10px;
+        }
+
+        .envelope.disabled { opacity: 0.4; cursor: default; }
+        .envelope.disabled:hover { transform: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+        @keyframes envelopeOpen {
+            0% { transform: scale(1) rotate(0); }
+            25% { transform: scale(1.15) rotate(-3deg); }
+            50% { transform: scale(0.95) rotate(2deg); }
+            75% { transform: scale(1.05) rotate(-1deg); }
+            100% { transform: scale(1) rotate(0); }
+        }
+
+        .env-color-0 { background: linear-gradient(135deg, #ffecb3, #ffd54f); }
+        .env-color-1 { background: linear-gradient(135deg, #f8bbd0, #f06292); }
+        .env-color-2 { background: linear-gradient(135deg, #e1bee7, #ab47bc); }
+        .env-color-3 { background: linear-gradient(135deg, #ffcdd2, #ef5350); }
+        .env-color-4 { background: linear-gradient(135deg, #e0e0e0, #bdbdbd); }
+        .env-color-5 { background: linear-gradient(135deg, #b2dfdb, #4db6ac); }
+
+        /* ============================================
+           GALLERY LỜI CHÚC — FLIP CARDS
+           ============================================ */
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 24px;
+        }
+
+        .wish-card-wrapper {
+            perspective: 1000px;
+            min-height: 240px;
+        }
+
+        .wish-card {
+            width: 100%; height: 100%;
+            min-height: 240px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .wish-card-wrapper:hover .wish-card { transform: rotateY(180deg); }
+
+        .wish-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 20px;
+        }
+
+        .wish-front {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .wish-back {
+            background: linear-gradient(135deg, rgba(173,20,87,0.9), rgba(106,27,154,0.9));
+            transform: rotateY(180deg);
+            color: white;
+        }
+
+        .wish-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
+        .wish-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #880e4f; margin-bottom: 8px; font-weight: 700; }
+        .wish-text { font-size: 0.9rem; color: #6a1b4d; line-height: 1.6; font-weight: 500; }
+        .wish-back .wish-title { color: #fff; }
+        .wish-back .wish-text { color: rgba(255,255,255,0.9); font-family: 'Dancing Script', cursive; font-size: 1.05rem; }
+        .wish-hint { font-size: 0.7rem; color: #ce93d8; margin-top: 8px; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .wave-divider {
+            width: 100%;
+            line-height: 0;
+            margin-top: 40px;
+        }
+
+        .wave-divider svg { display: block; width: 100%; height: 60px; }
+
+        .footer {
+            background: linear-gradient(135deg, #880e4f, #6a1b9a);
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .footer .heart { display: inline-block; animation: heartBeat 1.2s ease infinite; font-size: 1.3rem; }
+        .footer .footer-sub { font-family: 'Dancing Script', cursive; font-size: 1.15rem; margin-top: 10px; opacity: 0.85; }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.2); }
+            60% { transform: scale(1); }
+        }
+
+        /* ============================================
+           ANIMATIONS CHUNG
+           ============================================ */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .members-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+            .member-card { padding: 18px 10px 16px; }
+            .member-avatar { font-size: 2.2rem; }
+            .member-name { font-size: 0.82rem; }
+            .game-container { padding: 24px 14px; }
+            .wheel-wrapper { width: 280px; height: 280px; }
+            .wheel-canvas { width: 280px; height: 280px; }
+            .gifts-grid { gap: 10px; max-width: 300px; }
+            .gift-box { font-size: 2rem; }
+            .wishes-grid { grid-template-columns: 1fr; }
+            .countdown-item { padding: 12px 14px; min-width: 65px; }
+            .countdown-item .number { font-size: 1.5rem; }
+            .game-tab { padding: 8px 12px; font-size: 0.75rem; }
+            .memory-grid { max-width: 280px; gap: 8px; }
+            .envelope-grid { max-width: 300px; gap: 10px; }
+            .nav-link { font-size: 0.75rem; padding: 5px 10px; }
+            .corner-ribbon { font-size: 0.6rem; padding: 6px 50px; top: 22px; right: -55px; }
+        }
+
+        @media (max-width: 400px) {
+            .members-grid { grid-template-columns: repeat(2, 1fr); }
+            .wheel-wrapper { width: 250px; height: 250px; }
+            .wheel-canvas { width: 250px; height: 250px; }
+            .gifts-grid { max-width: 240px; }
+            .memory-grid { max-width: 240px; }
+            .envelope-grid { max-width: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         RIBBON BADGE - MÓN QUÀ TỪ NAM 12A1
+         ============================================ -->
+    <div class="corner-ribbon">Món quà từ nam sinh 12A1 💌</div>
+
+    <!-- ============================================
+         NAVIGATION BAR
+         ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-link active">🏠 Trang chủ</a>
+            <a href="#members" class="nav-link">💐 Thành viên</a>
+            <a href="#games" class="nav-link">🎮 Trò chơi</a>
+            <a href="#wishes" class="nav-link">💝 Lời chúc</a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">🌸 Ngày Quốc Tế Phụ Nữ 2026 🌸</div>
+        <h1>Chúc Mừng 8/3 💐</h1>
+        <p class="subtitle" id="typingSubtitle"></p>
+        <p class="subtitle-static">Gửi đến 18 bông hoa xinh đẹp nhất của lớp 12A1</p>
+
+        <div class="countdown-container" id="countdown-container"></div>
+
+        <button class="scroll-btn" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})">↓</button>
+    </section>
+
+    <!-- ============================================
+         DANH SÁCH THÀNH VIÊN
+         ============================================ -->
+    <section class="section" id="members">
+        <h2 class="section-title reveal">Những Nàng Thơ Của Lớp 🌷</h2>
+        <p class="section-subtitle reveal">Mỗi bạn là một bông hoa tỏa sáng theo cách riêng — nhấn vào để xem lời chúc nhé!</p>
+        <div class="section-divider reveal"></div>
+        <div class="members-grid" id="members-grid"></div>
+    </section>
+
+    <!-- Modal lời chúc riêng -->
+    <div class="modal-overlay" id="memberModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <span class="modal-emoji" id="modalEmoji"></span>
+            <h3 class="modal-name" id="modalName"></h3>
+            <p class="modal-message" id="modalMessage"></p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         TRÒ CHƠI — 6 GAMES
+         ============================================ -->
+    <section class="games-section" id="games">
+        <h2 class="section-title reveal">Trò Chơi Vui 🎮</h2>
+        <p class="section-subtitle reveal">6 trò chơi siêu vui — chọn và chơi ngay!</p>
+        <div class="section-divider reveal"></div>
+
+        <div class="game-tabs reveal">
+            <button class="game-tab active" onclick="switchGame(0)">🎡 Vòng Quay</button>
+            <button class="game-tab" onclick="switchGame(1)">🎁 Hộp Quà</button>
+            <button class="game-tab" onclick="switchGame(2)">🎯 Ai Đặc Biệt?</button>
+            <button class="game-tab" onclick="switchGame(3)">💌 Random Chúc</button>
+            <button class="game-tab" onclick="switchGame(4)">🌸 Ghép Đôi Hoa</button>
+            <button class="game-tab" onclick="switchGame(5)">🎫 Bóc Thăm</button>
+        </div>
+
+        <!-- GAME 1: VÒNG QUAY MAY MẮN -->
+        <div class="game-panel active" id="game-0">
+            <div class="game-container">
+                <h3 class="game-title">Vòng Quay May Mắn 🎡</h3>
+                <p class="game-desc">Quay và nhận phần thưởng bất ngờ!</p>
+                <div class="wheel-wrapper">
+                    <div class="wheel-pointer">📍</div>
+                    <canvas id="wheelCanvas" class="wheel-canvas" width="700" height="700"></canvas>
+                    <div class="wheel-center">🌸</div>
+                </div>
+                <button class="btn-primary" id="spinBtn" onclick="spinWheel()">✨ QUAY NGAY ✨</button>
+                <div class="game-result" id="wheelResult"></div>
+            </div>
+        </div>
+
+        <!-- GAME 2: HỘP QUÀ BÍ ẨN -->
+        <div class="game-panel" id="game-1">
+            <div class="game-container">
+                <h3 class="game-title">Hộp Quà Bí Ẩn 🎁</h3>
+                <p class="game-desc">Chọn một hộp quà để khám phá điều bất ngờ!</p>
+                <div class="gifts-grid" id="giftsGrid"></div>
+                <div class="game-result" id="giftResult"></div>
+                <button class="btn-secondary" id="giftResetBtn" onclick="resetGifts()" style="display:none;">🔄 Chơi lại</button>
+            </div>
+        </div>
+
+        <!-- GAME 3: AI LÀ NGƯỜI ĐẶC BIỆT -->
+        <div class="game-panel" id="game-2">
+            <div class="game-container">
+                <h3 class="game-title">Ai Là Người Đặc Biệt Hôm Nay? 🎯</h3>
+                <p class="game-desc">Nhấn nút để tìm ra người đặc biệt nhất!</p>
+                <div class="slot-display" id="slotDisplay">Nhấn nút bên dưới... 💫</div>
+                <button class="btn-primary" id="pickBtn" onclick="startSlot()">🎲 BẤM ĐỂ CHỌN NGẪU NHIÊN</button>
+            </div>
+        </div>
+
+        <!-- GAME 4: RANDOM LỜI CHÚC -->
+        <div class="game-panel" id="game-3">
+            <div class="game-container">
+                <h3 class="game-title">Random Lời Chúc 8/3 💌</h3>
+                <p class="game-desc">Nhấn nút để nhận lời chúc dành riêng cho bạn!</p>
+                <div class="wish-slot-display" id="wishSlotDisplay">Nhấn nút để nhận lời chúc... 💫</div>
+                <button class="btn-primary" id="wishSlotBtn" onclick="startWishSlot()">💝 NHẬN LỜI CHÚC</button>
+            </div>
+        </div>
+
+        <!-- GAME 5: GHÉP ĐÔI HOA -->
+        <div class="game-panel" id="game-4">
+            <div class="game-container">
+                <h3 class="game-title">Ghép Đôi Hoa 🌸</h3>
+                <p class="game-desc">Lật thẻ và tìm các cặp hoa giống nhau!</p>
+                <div class="memory-stats">
+                    <span>Lượt lật: <b id="flipCount">0</b></span>
+                    <span>Cặp tìm được: <b id="matchCount">0</b>/8</span>
+                </div>
+                <div class="memory-grid" id="memoryGrid"></div>
+                <div class="game-result" id="memoryResult"></div>
+                <button class="btn-secondary" onclick="resetMemory()">🔄 Chơi lại</button>
+            </div>
+        </div>
+
+        <!-- GAME 6: BÓC THĂM MAY MẮN -->
+        <div class="game-panel" id="game-5">
+            <div class="game-container">
+                <h3 class="game-title">Bóc Thăm May Mắn 🎫</h3>
+                <p class="game-desc">Chọn một phong bì và khám phá lời nhắn bí mật!</p>
+                <div class="envelope-grid" id="envelopeGrid"></div>
+                <div class="game-result" id="envelopeResult"></div>
+                <button class="btn-secondary" id="envResetBtn" onclick="resetEnvelopes()" style="display:none;">🔄 Chơi lại</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GALLERY LỜI CHÚC — FLIP CARDS
+         ============================================ -->
+    <section class="section" id="wishes">
+        <h2 class="section-title reveal">Lời Chúc 8/3 💝</h2>
+        <p class="section-subtitle reveal">Hover/chạm để lật và đọc lời chúc ấm áp nhé!</p>
+        <div class="section-divider reveal"></div>
+        <div class="wishes-grid" id="wishes-grid"></div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+            <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,20 1440,30 L1440,60 L0,60 Z" fill="#880e4f"/>
+        </svg>
+    </div>
+    <footer class="footer">
+        <p>Làm bởi <span class="heart">❤️</span> từ cả lớp • 8/3/2026</p>
+        <p class="footer-sub">Từ các chàng trai 12A1 với tất cả yêu thương 💌</p>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+    // ============================================
+    // DỮ LIỆU
+    // ============================================
+
+    // 18 thành viên nữ
+    const members = [
+        "Trần Ngọc Khả Ái", "Trần Thúy An", "Nguyễn Nhật Ánh Dương",
+        "Bùi Huỳnh Khánh Linh", "Lê Hoàng Thiên Nhi", "Nguyễn Ngọc Hà Như",
+        "Nguyễn Thị Hồng Thắm", "Võ Yến Thanh", "Nguyễn Minh Thy",
+        "Nguyễn Thị Bảo Trân", "Nguyễn Ngọc Bảo Trân", "Nguyễn Thị Thảo Trinh",
+        "Nguyễn Phạm Nhã Trúc", "Phan Thanh Trúc", "Trần Tường Vi",
+        "Nguyễn Phương Vy", "Lê Phan Ngọc Yến", "Miss Điệp"
+    ];
+
+    const avatarEmojis = ["🌹","🪻","🌻","🤍","🌸","🪷","🌹","🤍","🤍","🌺","🌷","🌼","🌺","🌼","🌸","💜","💜","🦋"];
+
+    // Hoa tượng trưng cho từng thành viên
+    const memberFlowerNotes = [
+        "🌹 Hoa hồng phấn • Ngọt ngào, đáng yêu, dịu dàng",
+        "🪻 Hoa oải hương • Dịu nhẹ, bình yên, thanh thúy",
+        "🌻 Hoa hướng dương • Rực rỡ, tỏa sáng",
+        "🤍 Hoa linh lan • Tinh khiết, mang lại may mắn",
+        "🌸 Hoa anh đào • Nhẹ nhàng, tinh tế, trong sáng",
+        "🪷 Hoa sen • Thanh cao, trong sáng, nữ tính",
+        "🌹 Hoa hồng đỏ thắm • Nồng nàn, nổi bật",
+        "🤍 Hoa nhài trắng • Thanh khiết, hương nhẹ",
+        "🤍 Hoa cúc trắng • Thanh cao, nho nhã",
+        "🌺 Hoa mẫu đơn • Quý phái, sang trọng",
+        "🌷 Hoa tulip hồng • Thanh lịch, quý giá",
+        "🌼 Hoa cúc họa mi • Trong sáng, giản dị",
+        "🌺 Hoa lan hồ điệp • Tao nhã, tinh tế",
+        "🌼 Hoa thủy tiên • Thanh cao, ngay thẳng",
+        "🌸 Hoa tường vi • Dịu dàng, duyên dáng",
+        "💜 Hoa violet • Nhỏ nhắn, thơm dịu",
+        "💜 Hoa thạch thảo • Nhẹ nhàng, lung linh",
+        "🦋 Hoa lan hồ điệp • Tự do như cánh bướm"
+    ];
+
+    // Lời chúc riêng cho từng thành viên (modal)
+    const personalWishes = [
+        "Khả Ái ơi, hoa hồng phấn rất hợp với sự đáng yêu của bạn. Chúc bạn luôn ngọt ngào, dịu dàng và tràn đầy niềm vui! 🌹💕",
+        "Thúy An ơi, bạn mang cảm giác bình yên như hoa oải hương. Chúc bạn luôn nhẹ nhàng, an nhiên và hạnh phúc! 🪻✨",
+        "Ánh Dương ơi, đúng như hoa hướng dương, bạn luôn rực rỡ và lan tỏa năng lượng tích cực cho cả lớp! 🌻☀️",
+        "Khánh Linh ơi, hoa linh lan tượng trưng cho điềm lành và may mắn như chính tên của bạn. Chúc bạn luôn tỏa sáng! 🤍🍀",
+        "Thiên Nhi ơi, nét trong trẻo của bạn rất hợp với hoa anh đào. Chúc bạn mãi tinh tế, dịu dàng và vui tươi! 🌸💫",
+        "Hà Như ơi, hoa sen thanh cao như phong thái của bạn. Chúc bạn luôn bình an, thuần khiết và đầy yêu thương! 🪷💖",
+        "Hồng Thắm ơi, cái tên đã gợi lên sắc đỏ nồng nàn của hoa hồng thắm. Chúc bạn mãi rực rỡ và hạnh phúc! 🌹🥰",
+        "Yến Thanh ơi, hoa nhài trắng hợp với sự trong trẻo của bạn. Chúc bạn luôn thanh khiết, tự do và thật duyên dáng! 🤍🕊️",
+        "Minh Thy ơi, vẻ nho nhã của bạn giống như hoa cúc trắng. Chúc bạn luôn tinh tế, thông minh và gặp nhiều may mắn! 🤍🌟",
+        "Bảo Trân ơi, hoa mẫu đơn đại diện cho sự quý phái và trân quý như chính cái tên của bạn. Chúc bạn thật rạng rỡ! 🌺👑",
+        "Ngọc Bảo Trân ơi, hoa tulip hồng rất hợp với sự thanh lịch và quý giá của bạn. Chúc bạn luôn nổi bật theo cách riêng! 🌷💎",
+        "Thảo Trinh ơi, hoa cúc họa mi mang nét trong sáng và giản dị như bạn. Chúc bạn luôn nhẹ nhàng và bình an! 🌼💕",
+        "Nhã Trúc ơi, hoa lan hồ điệp tôn lên vẻ tao nhã tinh tế của bạn. Chúc bạn luôn tự tin và tỏa sáng! 🌺✨",
+        "Thanh Trúc ơi, hoa thủy tiên tượng trưng cho sự thanh cao và chính trực. Chúc bạn luôn mạnh mẽ, trong sáng và thành công! 🌼💙",
+        "Tường Vi ơi, tên bạn đã là một loài hoa đẹp. Chúc bạn mãi dịu dàng, duyên dáng và hạnh phúc tròn đầy! 🌸💖",
+        "Phương Vy ơi, hoa violet nhỏ nhắn mà cuốn hút như bạn. Chúc bạn luôn đáng yêu và thơm ngát năng lượng tích cực! 💜🌈",
+        "Ngọc Yến ơi, hoa thạch thảo nhẹ nhàng và lung linh đúng với khí chất của bạn. Chúc bạn luôn rạng rỡ và an yên! 💜🕊️",
+        "Miss Điệp ơi, hình ảnh cánh bướm của bạn rất hợp với hoa lan hồ điệp. Chúc bạn luôn tự do, tinh tế và bay cao thật đẹp! 🦋🌺"
+    ];
+
+    // Quà vòng quay (8 ô)
+    const wheelPrizes = [
+        "Lời khen từ cả lớp 💬", "Sticker cute 🎀",
+        "Miễn 1 lần phát biểu 😂", "Chocolate ngọt ngào 🍫",
+        "Voucher trà sữa tưởng tượng 🧋", "Hug ảo từ cả lớp 🤗",
+        "Hoa hậu lớp 1 ngày 👑", "Điều ước bí mật ⭐"
+    ];
+
+    const wheelLabels = ["Lời khen","Sticker","Miễn PB","Chocolate","Trà sữa","Hug ảo","Hoa hậu","Điều ước"];
+    const wheelColors = ["#e91e63","#9c27b0","#f06292","#7b1fa2","#ec407a","#8e24aa","#f48fb1","#ab47bc"];
+
+    // Quà hộp quà (9 hộp)
+    const giftPrizes = [
+        "Bông hoa 3D ảo 🌹", "Lời chúc từ vũ trụ 🌌", "Nụ hôn gió 💨😘",
+        "Ngôi sao may mắn ⭐", "Siêu năng lực xinh đẹp ✨", "Vương miện danh dự 👑",
+        "Kẹo ngọt ảo 🍬", "Vé du lịch trong mơ 🌏", "Pháo hoa riêng 🎆"
+    ];
+
+    // Pool 24 lời chúc dài cho game random
+    const wishPool = [
+        "Chúc bạn luôn xinh đẹp, rạng ngời như ánh ban mai, mỗi ngày đều tràn đầy niềm vui và tiếng cười! 🌅💕",
+        "Ngày 8/3 này, chúc bạn nhận được thật nhiều yêu thương, hạnh phúc và những điều tuyệt vời nhất! 💐✨",
+        "Chúc bạn mạnh mẽ như biển cả, dịu dàng như gió xuân, và tỏa sáng như vì sao! 🌊🌸",
+        "Bạn xứng đáng được yêu thương mỗi ngày, không chỉ riêng ngày 8/3! Chúc bạn luôn hạnh phúc! 💝🌈",
+        "Chúc bạn luôn giữ được nụ cười ấm áp và trái tim nhân hậu! Bạn thật đặc biệt! 😊💖",
+        "Như một bông hoa tỏa hương, bạn luôn mang đến niềm vui cho mọi người xung quanh! 🌺🦋",
+        "Chúc mọi giấc mơ của bạn đều thành hiện thực, mọi con đường đều dẫn đến hạnh phúc! 🌟🛤️",
+        "Ngày phụ nữ, chúc bạn được nâng niu, trân trọng như đóa hồng quý giá nhất! 🌹👑",
+        "Chúc bạn tự tin chinh phục mọi thử thách, vì bạn có sức mạnh phi thường! 💪✨",
+        "Mỗi ngày của bạn đều xứng đáng là ngày đặc biệt! Chúc 8/3 thật đáng nhớ! 🎉🌸",
+        "Chúc bạn luôn được bao bọc bởi tình yêu thương, sức khỏe và may mắn! 🍀💕",
+        "Bạn là minh chứng rằng phụ nữ có thể vừa xinh đẹp vừa tài giỏi! Ngưỡng mộ bạn! 💎🌟",
+        "Chúc bạn một ngày 8/3 ngọt ngào như chocolate, ấm áp như nắng xuân! 🍫☀️",
+        "Hãy luôn yêu thương bản thân nhé! Vì bạn là phiên bản đẹp nhất của chính mình! 💗🦋",
+        "Chúc cuộc sống của bạn luôn rực rỡ sắc màu như cầu vồng sau cơn mưa! 🌈💫",
+        "Ngày 8/3, gửi bạn ngàn lời chúc tốt đẹp! Bạn xứng đáng có tất cả! 💐🎀",
+        "Chúc bạn luôn bay cao bay xa, nhưng đừng quên rằng lớp mình luôn ở đây ủng hộ bạn! 🕊️💕",
+        "Không cần hoa, không cần quà — chỉ cần bạn luôn vui vẻ là cả lớp đã hạnh phúc rồi! 😄🌻",
+        "Chúc bạn một mùa xuân đẹp, một ngày 8/3 ý nghĩa và cả năm tràn đầy yêu thương! 🌸🎊",
+        "Bạn là ngôi sao sáng nhất trên bầu trời lớp mình! Hãy luôn tỏa sáng nhé! ⭐✨",
+        "Chúc bạn luôn trẻ trung, tươi tắn và đầy năng lượng tích cực mỗi ngày! 🌞💪",
+        "Ngày phụ nữ chúc bạn nhận trọn vẹn tình cảm từ những người yêu thương bạn! 💌🥰",
+        "Như ánh trăng dịu dàng soi sáng đêm, bạn luôn mang lại sự bình yên cho mọi người! 🌙💛",
+        "Chúc bạn mãi là chính mình — đáng yêu, tài năng và không gì có thể thay thế! 🌟💝"
+    ];
+
+    // Quà bóc thăm (6 phong bì)
+    const envelopePrizes = [
+        { emoji: "💌", text: "Bạn sẽ có một tuần đầy may mắn và niềm vui bất ngờ! Hãy đón nhận nhé!", title: "Lá Thư May Mắn" },
+        { emoji: "🌹", text: "Ai đó đang thầm ngưỡng mộ bạn đấy! Hãy luôn tự tin vì bạn thật sự rất đặc biệt!", title: "Bí Mật Ngọt Ngào" },
+        { emoji: "⭐", text: "Một ngôi sao sáng đang chờ bạn! Điều tuyệt vời sẽ đến vào lúc bạn ít ngờ nhất!", title: "Ngôi Sao Hy Vọng" },
+        { emoji: "🎁", text: "Phần thưởng lớn nhất chính là nụ cười của bạn! Hãy luôn giữ nụ cười ấy nhé!", title: "Món Quà Vô Giá" },
+        { emoji: "🦋", text: "Như cánh bướm hóa thân, bạn sẽ ngày càng tỏa sáng rực rỡ hơn! Tin vào bản thân!", title: "Cánh Bướm Phép Thuật" },
+        { emoji: "🌈", text: "Sau mọi khó khăn luôn có cầu vồng! Chúc bạn luôn lạc quan và mạnh mẽ!", title: "Cầu Vồng Hy Vọng" }
+    ];
+
+    // Emoji hoa cho memory game
+    const memoryFlowers = ["🌸","🌺","🌼","🌻","💐","🌷","🪷","🌹"];
+
+    // Gallery lời chúc (12 cards)
+    const wishCards = [
+        { icon:"🌸", title:"Sức Khỏe & Bình An", front:"Lời chúc sức khỏe", back:"Chúc các bạn nữ luôn mạnh khỏe, bình an và tràn đầy năng lượng tích cực mỗi ngày!" },
+        { icon:"💎", title:"Tỏa Sáng Rực Rỡ", front:"Lời chúc tỏa sáng", back:"Chúc các bạn luôn tự tin tỏa sáng, vì mỗi bạn đều là một viên kim cương quý giá!" },
+        { icon:"📚", title:"Thành Công Học Tập", front:"Lời chúc học tập", back:"Chúc các bạn nữ đạt được mọi mục tiêu trong học tập, luôn giỏi giang và xuất sắc!" },
+        { icon:"🦋", title:"Xinh Đẹp Mãi Mãi", front:"Lời chúc xinh đẹp", back:"Chúc các bạn mãi xinh đẹp như hoa, duyên dáng như bướm, rạng ngời mỗi ngày!" },
+        { icon:"🌈", title:"Ước Mơ Thành Thật", front:"Lời chúc ước mơ", back:"Chúc mọi ước mơ của các bạn đều trở thành hiện thực, cuộc sống tươi đẹp như cầu vồng!" },
+        { icon:"💕", title:"Yêu Thương Trọn Vẹn", front:"Lời chúc yêu thương", back:"Chúc các bạn luôn được yêu thương, trân trọng và hạnh phúc bên những người thân yêu!" },
+        { icon:"⭐", title:"Luôn Là Ngôi Sao", front:"Lời chúc ngôi sao", back:"Các bạn là những ngôi sao sáng nhất của lớp! Chúc 8/3 thật đáng nhớ!" },
+        { icon:"🎀", title:"Ngọt Ngào & Đáng Yêu", front:"Lời chúc đáng yêu", back:"Chúc các bạn nữ luôn ngọt ngào, đáng yêu và tràn đầy niềm vui trong cuộc sống!" },
+        { icon:"🌹", title:"Kiêu Sa & Duyên Dáng", front:"Lời chúc kiêu sa", back:"Chúc các bạn luôn kiêu sa như đóa hồng, duyên dáng và cuốn hút mọi ánh nhìn!" },
+        { icon:"🔥", title:"Đam Mê & Nhiệt Huyết", front:"Lời chúc đam mê", back:"Chúc các bạn luôn cháy hết mình với đam mê, dũng cảm theo đuổi ước mơ!" },
+        { icon:"🌙", title:"Bình Yên & Thư Thái", front:"Lời chúc bình yên", back:"Chúc các bạn luôn có những phút giây bình yên, thư thái giữa cuộc sống bộn bề!" },
+        { icon:"👑", title:"Nữ Hoàng Của Lớp", front:"Lời chúc nữ hoàng", back:"Hôm nay các bạn là nữ hoàng! Chúc các bạn luôn tự tin, mạnh mẽ và xinh đẹp rạng ngời!" }
+    ];
+
+    // ============================================
+    // HOA RƠI ĐA DẠNG + FLOATING HEARTS
+    // ============================================
+    const petalTypes = ["🌸","🌺","🌷","💮","🪻"];
+    const heartTypes = ['❤️','💕','💖','💗','💓'];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobileView = window.matchMedia('(max-width: 768px)').matches;
+    const PETAL_INTERVAL = reduceMotion ? 2200 : (isMobileView ? 1100 : 750);
+    const HEART_INTERVAL = reduceMotion ? 3200 : (isMobileView ? 2000 : 1450);
+    const PETAL_LIFETIME = reduceMotion ? 12000 : 14000;
+    const HEART_LIFETIME = reduceMotion ? 14000 : 16000;
+    const MAX_ACTIVE_PETALS = reduceMotion ? 8 : (isMobileView ? 14 : 24);
+    const MAX_ACTIVE_HEARTS = reduceMotion ? 5 : (isMobileView ? 8 : 12);
+    let activePetals = 0;
+    let activeHearts = 0;
+
+    function createPetal() {
+        if (document.hidden || activePetals >= MAX_ACTIVE_PETALS) return;
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.textContent = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.fontSize = (14 + Math.random() * 14) + 'px';
+        petal.style.animationDuration = (7 + Math.random() * 7) + 's';
+        petal.style.animationDelay = Math.random() * 2 + 's';
+        activePetals++;
+        document.body.appendChild(petal);
+        setTimeout(() => {
+            petal.remove();
+            activePetals = Math.max(activePetals - 1, 0);
+        }, PETAL_LIFETIME);
+    }
+
+    function createHeart() {
+        if (document.hidden || activeHearts >= MAX_ACTIVE_HEARTS) return;
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (12 + Math.random() * 14) + 'px';
+        heart.style.animationDuration = (8 + Math.random() * 8) + 's';
+        heart.style.animationDelay = Math.random() * 3 + 's';
+        activeHearts++;
+        document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.remove();
+            activeHearts = Math.max(activeHearts - 1, 0);
+        }, HEART_LIFETIME);
+    }
+
+    setInterval(createPetal, PETAL_INTERVAL);
+    setInterval(createHeart, HEART_INTERVAL);
+
+    const initialPetalBurst = reduceMotion ? 2 : (isMobileView ? 3 : 4);
+    const initialHeartBurst = reduceMotion ? 1 : 2;
+    for (let i = 0; i < initialPetalBurst; i++) setTimeout(createPetal, i * 200);
+    for (let i = 0; i < initialHeartBurst; i++) setTimeout(createHeart, i * 320);
+
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            setTimeout(createPetal, 100);
+            if (!reduceMotion) setTimeout(createHeart, 220);
+        }
+    });
+
+    // ============================================
+    // NAVBAR SCROLL EFFECT
+    // ============================================
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ============================================
+    // TYPING EFFECT CHO SUBTITLE
+    // ============================================
+    const typingTexts = [
+        "Tôn vinh những nàng thơ của lớp 🌷",
+        "Xinh đẹp, tài năng và kiêu hãnh 💎",
+        "Các bạn là niềm tự hào của 12A1 ⭐",
+        "Happy International Women's Day! 💐"
+    ];
+    let typingIndex = 0, charIndex = 0, isDeleting = false;
+
+    function typeEffect() {
+        const el = document.getElementById('typingSubtitle');
+        const currentText = typingTexts[typingIndex];
+
+        if (!isDeleting) {
+            el.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentText.length) {
+                setTimeout(() => { isDeleting = true; typeEffect(); }, 2500);
+                return;
+            }
+        } else {
+            el.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                typingIndex = (typingIndex + 1) % typingTexts.length;
+            }
+        }
+
+        setTimeout(typeEffect, isDeleting ? 30 : 70);
+    }
+
+    typeEffect();
+
+    // ============================================
+    // ĐỒNG HỒ ĐẾM NGƯỢC
+    // ============================================
+    function updateCountdown() {
+        const container = document.getElementById('countdown-container');
+        const target = new Date('2026-03-08T00:00:00+07:00');
+        const diff = target - new Date();
+
+        if (diff <= 0) {
+            container.innerHTML = '<div class="celebration-msg">🎉 Chúc mừng ngày của các bạn! 🎉</div>';
+        } else {
+            const d = Math.floor(diff / 864e5);
+            const h = Math.floor((diff % 864e5) / 36e5);
+            const m = Math.floor((diff % 36e5) / 6e4);
+            const s = Math.floor((diff % 6e4) / 1e3);
+            container.innerHTML = `
+                <div class="countdown-label">⏰ Đếm ngược đến ngày 8/3</div>
+                <div class="countdown">
+                    <div class="countdown-item"><span class="number">${d}</span><span class="label">Ngày</span></div>
+                    <div class="countdown-item"><span class="number">${String(h).padStart(2,'0')}</span><span class="label">Giờ</span></div>
+                    <div class="countdown-item"><span class="number">${String(m).padStart(2,'0')}</span><span class="label">Phút</span></div>
+                    <div class="countdown-item"><span class="number">${String(s).padStart(2,'0')}</span><span class="label">Giây</span></div>
+                </div>`;
+        }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ============================================
+    // RENDER THÀNH VIÊN + MODAL
+    // ============================================
+    function renderMembers() {
+        const grid = document.getElementById('members-grid');
+
+        members.forEach((name, i) => {
+            const card = document.createElement('div');
+            card.classList.add('member-card', 'reveal');
+            card.style.transitionDelay = (i * 0.05) + 's';
+            card.innerHTML = `
+                <span class="member-avatar">${avatarEmojis[i]}</span>
+                <div class="member-name">${name}</div>
+                <div class="member-wish">${memberFlowerNotes[i]}</div>
+                <div class="member-click-hint">Nhấn để xem lời chúc 💌</div>
+            `;
+            card.addEventListener('click', () => openMemberModal(i));
+            grid.appendChild(card);
+        });
+    }
+
+    function openMemberModal(index) {
+        document.getElementById('modalEmoji').textContent = avatarEmojis[index];
+        document.getElementById('modalName').textContent = members[index];
+        document.getElementById('modalMessage').textContent = personalWishes[index];
+        document.getElementById('memberModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('memberModal').classList.remove('active');
+    }
+
+    // Đóng modal khi click overlay
+    document.getElementById('memberModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    renderMembers();
+
+    // ============================================
+    // CHUYỂN TAB TRÒ CHƠI
+    // ============================================
+    function switchGame(index) {
+        document.querySelectorAll('.game-tab').forEach((t, i) => t.classList.toggle('active', i === index));
+        document.querySelectorAll('.game-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+    }
+
+    // ============================================
+    // GAME 1: VÒNG QUAY MAY MẮN
+    // ============================================
+    let wheelAngle = 0, isSpinning = false;
+
+    function drawWheel() {
+        const canvas = document.getElementById('wheelCanvas');
+        const ctx = canvas.getContext('2d');
+        const cx = canvas.width / 2, cy = canvas.height / 2, r = cx - 10;
+        const slice = (2 * Math.PI) / wheelPrizes.length;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(wheelAngle);
+
+        wheelPrizes.forEach((prize, i) => {
+            const start = i * slice, end = start + slice;
+            // Vẽ ô
+            ctx.beginPath(); ctx.moveTo(0, 0);
+            ctx.arc(0, 0, r, start, end);
+            ctx.closePath();
+            ctx.fillStyle = wheelColors[i]; ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 2; ctx.stroke();
+            // Vẽ text
+            ctx.save();
+            ctx.rotate(start + slice / 2);
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Quicksand, sans-serif';
+            ctx.textAlign = 'center';
+            // Emoji
+            const emojiMatch = prize.match(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu);
+            const emoji = emojiMatch ? emojiMatch[emojiMatch.length - 1] : '';
+            ctx.fillText(emoji, r * 0.68, 8);
+            // Label
+            ctx.font = 'bold 15px Quicksand, sans-serif';
+            ctx.fillText(wheelLabels[i], r * 0.43, 8);
+            ctx.restore();
+        });
+
+        ctx.restore();
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+        if (isSpinning) return;
+        isSpinning = true;
+        const btn = document.getElementById('spinBtn');
+        const result = document.getElementById('wheelResult');
+        btn.disabled = true; result.textContent = '';
+
+        const total = wheelAngle + (5 + Math.random() * 5) * 2 * Math.PI + Math.random() * 2 * Math.PI;
+        const startA = wheelAngle, startT = performance.now(), dur = 4500;
+
+        function animate(now) {
+            const p = Math.min((now - startT) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            wheelAngle = startA + (total - startA) * ease;
+            drawWheel();
+            if (p < 1) { requestAnimationFrame(animate); return; }
+
+            const slice = (2 * Math.PI) / wheelPrizes.length;
+            let norm = wheelAngle % (2 * Math.PI); if (norm < 0) norm += 2 * Math.PI;
+            const ptr = (2 * Math.PI - norm + 3 * Math.PI / 2) % (2 * Math.PI);
+            const win = Math.floor(ptr / slice) % wheelPrizes.length;
+
+            result.textContent = '🎉 ' + wheelPrizes[win] + ' 🎉';
+            fireConfetti();
+            isSpinning = false; btn.disabled = false;
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // ============================================
+    // GAME 2: HỘP QUÀ BÍ ẨN
+    // ============================================
+    let giftOpened = false;
+
+    function renderGifts() {
+        const grid = document.getElementById('giftsGrid');
+        grid.innerHTML = ''; giftOpened = false;
+        document.getElementById('giftResult').textContent = '';
+        document.getElementById('giftResetBtn').style.display = 'none';
+
+        const shuffled = [...giftPrizes].sort(() => Math.random() - 0.5);
+        for (let i = 0; i < 9; i++) {
+            const box = document.createElement('div');
+            box.classList.add('gift-box');
+            box.textContent = '🎁';
+            box.dataset.prize = shuffled[i];
+            box.addEventListener('click', () => openGift(box));
+            grid.appendChild(box);
+        }
+    }
+
+    function openGift(box) {
+        if (giftOpened || box.classList.contains('opened')) return;
+        giftOpened = true;
+        document.querySelectorAll('.gift-box').forEach(b => { if (b !== box) b.classList.add('disabled'); });
+        box.classList.add('opened');
+        box.textContent = box.dataset.prize;
+        document.getElementById('giftResult').textContent = '🎊 Bạn nhận được: ' + box.dataset.prize + ' 🎊';
+        document.getElementById('giftResetBtn').style.display = 'inline-block';
+        fireConfetti();
+    }
+
+    function resetGifts() { renderGifts(); }
+    renderGifts();
+
+    // ============================================
+    // GAME 3: AI LÀ NGƯỜI ĐẶC BIỆT
+    // ============================================
+    let isSlotRunning = false;
+
+    function startSlot() {
+        if (isSlotRunning) return;
+        isSlotRunning = true;
+        const display = document.getElementById('slotDisplay');
+        const btn = document.getElementById('pickBtn');
+        btn.disabled = true;
+        display.classList.remove('winner');
+        display.classList.add('spinning');
+
+        const winner = Math.floor(Math.random() * members.length);
+        let count = 0, total = 30 + Math.floor(Math.random() * 15), idx = 0;
+
+        function tick() {
+            idx = (idx + 1) % members.length;
+            display.textContent = '✨ ' + members[idx] + ' ✨';
+            count++;
+            if (count < total) {
+                setTimeout(tick, 50 + (count / total) * 260);
+            } else {
+                display.classList.remove('spinning');
+                display.classList.add('winner');
+                display.textContent = '🎉 ' + members[winner] + ' là người đặc biệt nhất hôm nay! 🎉';
+                fireConfettiBig();
+                isSlotRunning = false; btn.disabled = false;
+            }
+        }
+        tick();
+    }
+
+    // ============================================
+    // GAME 4: RANDOM LỜI CHÚC
+    // ============================================
+    let isWishSlotRunning = false;
+
+    function startWishSlot() {
+        if (isWishSlotRunning) return;
+        isWishSlotRunning = true;
+        const display = document.getElementById('wishSlotDisplay');
+        const btn = document.getElementById('wishSlotBtn');
+        btn.disabled = true;
+        display.classList.remove('active');
+
+        const winIdx = Math.floor(Math.random() * wishPool.length);
+        let count = 0, total = 20 + Math.floor(Math.random() * 10);
+
+        // Phase 1: Xáo nhanh qua nhiều lời chúc
+        function slotTick() {
+            const rIdx = Math.floor(Math.random() * wishPool.length);
+            // Hiện đoạn ngắn của lời chúc
+            display.textContent = wishPool[rIdx].substring(0, 30) + '...';
+            count++;
+            if (count < total) {
+                setTimeout(slotTick, 60 + (count / total) * 200);
+            } else {
+                // Phase 2: Typing effect lời chúc chiến thắng
+                display.textContent = '';
+                display.classList.add('active');
+                typeWish(wishPool[winIdx], display, () => {
+                    fireConfetti();
+                    isWishSlotRunning = false;
+                    btn.disabled = false;
+                });
+            }
+        }
+        slotTick();
+    }
+
+    // Hiệu ứng gõ chữ cho lời chúc
+    function typeWish(text, el, callback) {
+        let i = 0;
+        function type() {
+            el.textContent = text.substring(0, i + 1);
+            i++;
+            if (i < text.length) {
+                setTimeout(type, 25);
+            } else if (callback) {
+                setTimeout(callback, 500);
+            }
+        }
+        type();
+    }
+
+    // ============================================
+    // GAME 5: GHÉP ĐÔI HOA (Memory)
+    // ============================================
+    let memoryCards = [], flippedCards = [], matchedPairs = 0, flipCountVal = 0, memoryLocked = false;
+
+    function initMemory() {
+        const pairs = [...memoryFlowers, ...memoryFlowers];
+        // Xáo trộn Fisher-Yates
+        for (let i = pairs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+        }
+        memoryCards = pairs;
+        flippedCards = []; matchedPairs = 0; flipCountVal = 0; memoryLocked = false;
+        document.getElementById('flipCount').textContent = '0';
+        document.getElementById('matchCount').textContent = '0';
+        document.getElementById('memoryResult').textContent = '';
+        renderMemoryGrid();
+    }
+
+    function renderMemoryGrid() {
+        const grid = document.getElementById('memoryGrid');
+        grid.innerHTML = '';
+        memoryCards.forEach((emoji, i) => {
+            const card = document.createElement('div');
+            card.classList.add('memory-card');
+            card.dataset.index = i;
+            card.innerHTML = `
+                <div class="card-face card-front">🌸</div>
+                <div class="card-face card-back">${emoji}</div>
+            `;
+            card.addEventListener('click', () => flipCard(card, i));
+            grid.appendChild(card);
+        });
+    }
+
+    function flipCard(card, index) {
+        if (memoryLocked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        card.classList.add('flipped');
+        flippedCards.push({ card, index });
+        flipCountVal++;
+        document.getElementById('flipCount').textContent = flipCountVal;
+
+        if (flippedCards.length === 2) {
+            memoryLocked = true;
+            const [a, b] = flippedCards;
+            if (memoryCards[a.index] === memoryCards[b.index]) {
+                // Match!
+                a.card.classList.add('matched');
+                b.card.classList.add('matched');
+                matchedPairs++;
+                document.getElementById('matchCount').textContent = matchedPairs;
+                flippedCards = [];
+                memoryLocked = false;
+
+                if (matchedPairs === 8) {
+                    document.getElementById('memoryResult').textContent = '🎉 Hoàn thành! Bạn dùng ' + flipCountVal + ' lượt lật! 🎉';
+                    fireConfettiBig();
+                }
+            } else {
+                // Không match → lật úp lại
+                setTimeout(() => {
+                    a.card.classList.remove('flipped');
+                    b.card.classList.remove('flipped');
+                    flippedCards = [];
+                    memoryLocked = false;
+                }, 800);
+            }
+        }
+    }
+
+    function resetMemory() { initMemory(); }
+    initMemory();
+
+    // ============================================
+    // GAME 6: BÓC THĂM MAY MẮN
+    // ============================================
+    let envelopeOpened = false;
+
+    function renderEnvelopes() {
+        const grid = document.getElementById('envelopeGrid');
+        grid.innerHTML = ''; envelopeOpened = false;
+        document.getElementById('envelopeResult').textContent = '';
+        document.getElementById('envResetBtn').style.display = 'none';
+
+        const shuffled = [...envelopePrizes].sort(() => Math.random() - 0.5);
+        shuffled.forEach((prize, i) => {
+            const env = document.createElement('div');
+            env.classList.add('envelope', 'env-color-' + i);
+            env.textContent = '✉️';
+            env.dataset.index = i;
+            env.addEventListener('click', () => openEnvelope(env, prize));
+            grid.appendChild(env);
+        });
+    }
+
+    function openEnvelope(env, prize) {
+        if (envelopeOpened || env.classList.contains('opened')) return;
+        envelopeOpened = true;
+
+        document.querySelectorAll('.envelope').forEach(e => { if (e !== env) e.classList.add('disabled'); });
+        env.classList.add('opened');
+        env.innerHTML = `<span style="font-size:2rem;margin-bottom:4px;">${prize.emoji}</span><span>${prize.title}</span>`;
+        document.getElementById('envelopeResult').innerHTML = `<b>${prize.emoji} ${prize.title}</b><br><span style="font-size:1rem;font-weight:500;">${prize.text}</span>`;
+        document.getElementById('envResetBtn').style.display = 'inline-block';
+        fireConfetti();
+    }
+
+    function resetEnvelopes() { renderEnvelopes(); }
+    renderEnvelopes();
+
+    // ============================================
+    // RENDER GALLERY LỜI CHÚC (FLIP CARDS)
+    // ============================================
+    function renderWishes() {
+        const grid = document.getElementById('wishes-grid');
+        wishCards.forEach((w, i) => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('wish-card-wrapper', 'reveal');
+            wrapper.style.transitionDelay = (i * 0.08) + 's';
+            wrapper.innerHTML = `
+                <div class="wish-card">
+                    <div class="wish-face wish-front">
+                        <span class="wish-icon">${w.icon}</span>
+                        <h4 class="wish-title">${w.title}</h4>
+                        <p class="wish-text">${w.front}</p>
+                        <p class="wish-hint">Hover để đọc lời chúc ✨</p>
+                    </div>
+                    <div class="wish-face wish-back">
+                        <span class="wish-icon">${w.icon}</span>
+                        <h4 class="wish-title">${w.title}</h4>
+                        <p class="wish-text">${w.back}</p>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(wrapper);
+        });
+    }
+    renderWishes();
+
+    // ============================================
+    // CONFETTI EFFECTS
+    // ============================================
+    function fireConfetti() {
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#e91e63','#9c27b0','#f06292','#ff80ab','#ea80fc','#ff4081','#f50057'] });
+    }
+
+    function fireConfettiBig() {
+        const end = Date.now() + 2500;
+        const colors = ['#e91e63','#9c27b0','#f06292','#ff80ab','#ea80fc','#fce4ec','#f8bbd0','#ffd54f'];
+        (function frame() {
+            confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 }, colors });
+            confetti({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1 }, colors });
+            if (Date.now() < end) requestAnimationFrame(frame);
+        })();
+    }
+
+    // ============================================
+    // SCROLL REVEAL
+    // ============================================
+    function handleReveal() {
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('visible');
+        });
+    }
+    window.addEventListener('scroll', handleReveal, { passive: true });
+    window.addEventListener('load', () => { handleReveal(); setTimeout(drawWheel, 500); });
+    </script>
+</body>
+</html>
