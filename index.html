@@ -580,7 +580,7 @@
             background: linear-gradient(135deg, #fff9c4, #fff176) !important;
             animation: giftOpen 0.6s ease forwards;
             cursor: default;
-            font-size: 0.9rem;
+            font-size: 1.6rem;
             padding: 6px;
             color: #880e4f;
             font-weight: 700;
@@ -768,6 +768,11 @@
             cursor: default;
             animation: envelopeOpen 0.7s ease;
             padding: 10px;
+        }
+
+        .envelope.opened .env-range {
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
         }
 
         .envelope.disabled { opacity: 0.4; cursor: default; }
@@ -999,7 +1004,7 @@
         <div class="game-panel active" id="game-0">
             <div class="game-container">
                 <h3 class="game-title">Vòng Quay May Mắn 🎡</h3>
-                <p class="game-desc">Quay và nhận phần thưởng bất ngờ!</p>
+                <p class="game-desc">Quay và nhận số may mắn từ 1-18!</p>
                 <div class="wheel-wrapper">
                     <div class="wheel-pointer">📍</div>
                     <canvas id="wheelCanvas" class="wheel-canvas" width="700" height="700"></canvas>
@@ -1014,7 +1019,7 @@
         <div class="game-panel" id="game-1">
             <div class="game-container">
                 <h3 class="game-title">Hộp Quà Bí Ẩn 🎁</h3>
-                <p class="game-desc">Chọn một hộp quà để khám phá điều bất ngờ!</p>
+                <p class="game-desc">Chọn một hộp để nhận số từ 1-9!</p>
                 <div class="gifts-grid" id="giftsGrid"></div>
                 <div class="game-result" id="giftResult"></div>
                 <button class="btn-secondary" id="giftResetBtn" onclick="resetGifts()" style="display:none;">🔄 Chơi lại</button>
@@ -1060,7 +1065,7 @@
         <div class="game-panel" id="game-5">
             <div class="game-container">
                 <h3 class="game-title">Bóc Thăm May Mắn 🎫</h3>
-                <p class="game-desc">Chọn một phong bì và khám phá lời nhắn bí mật!</p>
+                <p class="game-desc">Mỗi phong bì là một cụm 3 số (vd 1-3, 16-18).</p>
                 <div class="envelope-grid" id="envelopeGrid"></div>
                 <div class="game-result" id="envelopeResult"></div>
                 <button class="btn-secondary" id="envResetBtn" onclick="resetEnvelopes()" style="display:none;">🔄 Chơi lại</button>
@@ -1156,23 +1161,14 @@
         "Ngọc Yến ơi, tên bạn gợi vẻ đẹp thanh sáng và tinh tế. Chúc bạn luôn an yên, trọn niềm vui và luôn tỏa sáng theo cách dịu dàng nhất! 🌻"
     ];
 
-    // Quà vòng quay (8 ô)
-    const wheelPrizes = [
-        "Lời khen từ cả lớp 💬", "Sticker cute 🎀",
-        "Miễn 1 lần phát biểu 😂", "Chocolate ngọt ngào 🍫",
-        "Voucher trà sữa tưởng tượng 🧋", "Hug ảo từ cả lớp 🤗",
-        "Hoa hậu lớp 1 ngày 👑", "Điều ước bí mật ⭐"
-    ];
+    // Quà vòng quay (18 ô)
+    const wheelPrizes = Array.from({ length: 18 }, (_, i) => String(i + 1));
+    const wheelLabels = [...wheelPrizes];
+    // Màu vòng quay: tông hồng tím nhẹ, đủ 18 ô
+    const wheelColors = wheelPrizes.map((_, i) => `hsl(${(320 + i * 3.5) % 360}, 70%, 62%)`);
 
-    const wheelLabels = ["Lời khen","Sticker","Miễn PB","Chocolate","Trà sữa","Hug ảo","Hoa hậu","Điều ước"];
-    const wheelColors = ["#e91e63","#9c27b0","#f06292","#7b1fa2","#ec407a","#8e24aa","#f48fb1","#ab47bc"];
-
-    // Quà hộp quà (9 hộp)
-    const giftPrizes = [
-        "Bông hoa 3D ảo 🌹", "Lời chúc từ vũ trụ 🌌", "Nụ hôn gió 💨😘",
-        "Ngôi sao may mắn ⭐", "Siêu năng lực xinh đẹp ✨", "Vương miện danh dự 👑",
-        "Kẹo ngọt ảo 🍬", "Vé du lịch trong mơ 🌏", "Pháo hoa riêng 🎆"
-    ];
+    // Quà hộp quà (1-9)
+    const giftPrizes = Array.from({ length: 9 }, (_, i) => String(i + 1));
 
     // Pool 24 lời chúc dài cho game random
     const wishPool = [
@@ -1202,15 +1198,12 @@
         "Chúc bạn mãi là chính mình — đáng yêu, tài năng và không gì có thể thay thế! 🌟💝"
     ];
 
-    // Quà bóc thăm (6 phong bì)
-    const envelopePrizes = [
-        { emoji: "💌", text: "Bạn sẽ có một tuần đầy may mắn và niềm vui bất ngờ! Hãy đón nhận nhé!", title: "Lá Thư May Mắn" },
-        { emoji: "🌹", text: "Ai đó đang thầm ngưỡng mộ bạn đấy! Hãy luôn tự tin vì bạn thật sự rất đặc biệt!", title: "Bí Mật Ngọt Ngào" },
-        { emoji: "⭐", text: "Một ngôi sao sáng đang chờ bạn! Điều tuyệt vời sẽ đến vào lúc bạn ít ngờ nhất!", title: "Ngôi Sao Hy Vọng" },
-        { emoji: "🎁", text: "Phần thưởng lớn nhất chính là nụ cười của bạn! Hãy luôn giữ nụ cười ấy nhé!", title: "Món Quà Vô Giá" },
-        { emoji: "🦋", text: "Như cánh bướm hóa thân, bạn sẽ ngày càng tỏa sáng rực rỡ hơn! Tin vào bản thân!", title: "Cánh Bướm Phép Thuật" },
-        { emoji: "🌈", text: "Sau mọi khó khăn luôn có cầu vồng! Chúc bạn luôn lạc quan và mạnh mẽ!", title: "Cầu Vồng Hy Vọng" }
-    ];
+    // Quà bóc thăm (6 phong bì, mỗi ô 3 số)
+    const envelopePrizes = Array.from({ length: 6 }, (_, i) => {
+        const start = i * 3 + 1;
+        const end = start + 2;
+        return `${start}-${end}`;
+    });
 
     // Emoji hoa cho memory game
     const memoryFlowers = ["🌸","🌺","🌼","🌻","💐","🌷","🪷","🌹"];
@@ -1424,6 +1417,8 @@
         const ctx = canvas.getContext('2d');
         const cx = canvas.width / 2, cy = canvas.height / 2, r = cx - 10;
         const slice = (2 * Math.PI) / wheelPrizes.length;
+        const labelFontSize = wheelPrizes.length > 12 ? 12 : 15;
+        const emojiFontSize = wheelPrizes.length > 12 ? 20 : 24;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.save();
@@ -1442,14 +1437,14 @@
             ctx.save();
             ctx.rotate(start + slice / 2);
             ctx.fillStyle = 'white';
-            ctx.font = 'bold 24px Quicksand, sans-serif';
+            ctx.font = `bold ${emojiFontSize}px Quicksand, sans-serif`;
             ctx.textAlign = 'center';
             // Emoji
             const emojiMatch = prize.match(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu);
             const emoji = emojiMatch ? emojiMatch[emojiMatch.length - 1] : '';
             ctx.fillText(emoji, r * 0.68, 8);
             // Label
-            ctx.font = 'bold 15px Quicksand, sans-serif';
+            ctx.font = `bold ${labelFontSize}px Quicksand, sans-serif`;
             ctx.fillText(wheelLabels[i], r * 0.43, 8);
             ctx.restore();
         });
@@ -1713,8 +1708,8 @@
 
         document.querySelectorAll('.envelope').forEach(e => { if (e !== env) e.classList.add('disabled'); });
         env.classList.add('opened');
-        env.innerHTML = `<span style="font-size:2rem;margin-bottom:4px;">${prize.emoji}</span><span>${prize.title}</span>`;
-        document.getElementById('envelopeResult').innerHTML = `<b>${prize.emoji} ${prize.title}</b><br><span style="font-size:1rem;font-weight:500;">${prize.text}</span>`;
+        env.innerHTML = `<span class="env-range">${prize}</span>`;
+        document.getElementById('envelopeResult').textContent = `🎉 Bạn bốc được: ${prize} 🎉`;
         document.getElementById('envResetBtn').style.display = 'inline-block';
         fireConfetti();
     }
